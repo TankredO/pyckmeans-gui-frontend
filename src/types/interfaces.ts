@@ -9,10 +9,24 @@ interface AxiosResultResponse {
     data: PYCKResultObject
     status: number
 }
+
+interface FileObjectAPI{
+    path:string,
+    stats:FileObjectData
+}
 interface FileObjectMetaData {
     name: string,
     path: string,
     type: string,
+    uid: number,
+    gid: number,
+    owner: string,
+    group: string,
+    size: number,
+    created: Date,
+    modified: Date,
+    is_link: boolean,
+    link_target: string|null
 }
 
 interface FileObjectData {
@@ -55,4 +69,4 @@ interface PYCKResultInfoObject {
     cluster_membership: string
 }
 
-export { FileObjectMetaData, FileObjectData, FileObject, AxiosFileResponse, AxiosResultResponse, PYCKSubmissionObject, PYCKResultObject, PYCKconfig, PYCKResultInfoObject };
+export { FileObjectMetaData, FileObjectData, FileObject, AxiosFileResponse, AxiosResultResponse, PYCKSubmissionObject, PYCKResultObject, PYCKconfig, PYCKResultInfoObject, FileObjectAPI };

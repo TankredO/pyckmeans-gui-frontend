@@ -49,7 +49,7 @@ export default defineComponent({
       emit('modelDecline')
     }
     const asyncfetchRoot = async () => {
-      fileStoreInstance.fetchFolder('D:/../Test')
+      fileStoreInstance.fetchFolder('.')
     };
     onMounted(asyncfetchRoot)
     return {
@@ -64,4 +64,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
+.q-pa-md{
+  min-width: 25%;
+}
 </style>

@@ -19,7 +19,7 @@ export const usePYCKStore = defineStore('pyckStore', {
         async fetchResult(submission: PYCKSubmissionObject) {
             const sub = { submission: submission }
             try {
-                const { data }: AxiosResultResponse = await axios.get('/api/calculation', { params: sub })
+                const { data }: AxiosResultResponse = await axios.get(process.env.API + '/calculation', { params: sub })
                 this.resultMap.set(data.info.algorithm, data)
             } catch (error) {
                 console.log(error)
