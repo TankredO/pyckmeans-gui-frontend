@@ -22,7 +22,7 @@ export const useFileStore = defineStore('fileStore', {
     async fetchFolder(fpath: string) {
       const path = { path: fpath }
       try {
-        const { data }: AxiosFileResponse = await axios.get('http://localhost:3000/file', { params: path })
+        const { data }: AxiosFileResponse = await axios.get('/api/file', { params: path })
         const fileObjectData: FileObjectData = Object.entries(data)[0][1]
         const payload: FileObject = { child: fpath, data: fileObjectData }
         this.searchFolderAndAppend(payload)
@@ -33,7 +33,7 @@ export const useFileStore = defineStore('fileStore', {
     async fetchAllFiles(selectedRoot: FileObjectData) {
       const path = { path: selectedRoot.metaData?.path }
       try {
-        const { data }: AxiosFileResponse = await axios.get('http://localhost:3000/file/all', { params: path })
+        const { data }: AxiosFileResponse = await axios.get('/api/file/all', { params: path })
         const fileObjectData: FileObjectData = Object.entries(data)[0][1]
         this.selectedRoot = fileObjectData
         this.selectedFiles = []
